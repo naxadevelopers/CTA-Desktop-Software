@@ -3,32 +3,67 @@
   <head>
   </head>
   <body>
-    <h1>electron-boilerplate-sqlite</h1>
-    <ul id="database">
-    </ul>
+        <h1> CTA Database Browser </h1>
+
+        <form>
+          <div style="text-align:center;">
+
+            <input type="text" " id="actual-file" />
+            <input type="button" value="Choose a file" id="select-file" />
+<br />
+          </div>
+
+              <div>
+
+                <button id="read">Read the selected file.</button>
+                <button id="import">Select a file to import to.</button>
+
+                <button id="close-connection">Close Connection</button>
+
+              </div>
+
+
+
+
+        </form>
+
+
+
+
+<p id = "demo">
+  
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
-      var sqlite3 = require('sqlite3').verbose();
-      var db = new sqlite3.Database(':memory:');
 
-      db.serialize(function() {
-        db.run("CREATE TABLE lorem (info TEXT)");
+          require('./newindex.js');
 
-        var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-        for (var i = 0; i < 10; i++) {
-          stmt.run("Ipsum " + i);
-        }
 
-        stmt.finalize();
 
-        var rows = document.getElementById("database");
-        db.each("SELECT rowid AS id, info FROM lorem", function(err, row) {
-          var item = document.createElement("li");
-          item.textContent = "" + row.id + ": " + row.info;
-          rows.appendChild(item);
-        });
-      });
 
-      db.close();
+
+
+
+
+
+
+
     </script>
+
   </body>
 </html>
